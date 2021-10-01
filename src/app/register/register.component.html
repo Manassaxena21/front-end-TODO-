@@ -1,0 +1,53 @@
+<div class="bootstrap-wrapper">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <img class="img-fluid" style="width:100px" src="../../assets/profile.jpg" alt="password.png">
+                </div>
+                <!-- creating form -->
+                <form (ngSubmit)="onSubmit()" name="form" [formGroup]="form">
+                    <!-- username -->
+                    <mat-form-field class="full-width form-group" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input type="text" class="form-control"  formControlName="username" 
+                        [(ngModel)]="credentials.username" name="username" matInput placeholder="Username" >
+                    </mat-form-field>
+                    <div class="error-container" *ngIf="username.invalid && username.touched">
+                        <span class="error" *ngIf="username.errors?.required">FirstName is Required</span>
+                    </div>
+
+                    <!-- email -->
+                    <mat-form-field class="full-width form-group" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="text" class="form-control" formControlName="email"
+                        [(ngModel)]="credentials.email" name="email" required matInput placeholder="Email" >
+                    </mat-form-field>
+                    <div class="error-container" *ngIf="email.invalid && email.touched">
+                        <span class="error" *ngIf="email.errors?.required">Email is Required</span>
+                        <span class="error" *ngIf="email.errors?.email">Email is not valid</span>
+                    </div>
+
+                    <!-- password -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" class="form-control" formControlName="password" 
+                        [(ngModel)]="credentials.password" name="password" required matInput placeholder="Password" >
+                    </mat-form-field>
+                    <div class="error-container" *ngIf="password.invalid && password.touched">
+                        <span class="error" *ngIf="password.errors?.required">Password is Required</span>
+                        <span class="error" *ngIf="password.errors?.minlength">Password length must be 8 characters</span>
+                    </div>
+
+                    <div class="container text-center">
+                        <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Register</button>
+                    </div>
+
+                </form>
+                <br>
+                <p class="mt"> {{credentials | json}}</p>
+                <a routerLink="/login">Already a user ?</a>
+            </div>
+        </div>
+    </div>
+</div>

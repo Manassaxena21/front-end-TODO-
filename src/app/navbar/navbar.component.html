@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <a routerLink="/"><img src="../../assets/ToDo Icon.png" alt="ToDO"></a>
+    <span><a mat-icon-button routerLink="/"></a></span>
+    <span class="login-margin"></span>
+    <a *ngIf="!loggedIn" mat-icon-button routerLink="/login">Login</a>
+
+    <a *ngIf="!loggedIn" style="margin-left: 1vw;" mat-icon-button routerLink="/register">Register</a>
+    <a *ngIf="loggedIn"  (click)="logOutUser()" mat-icon-button >Logout</a>
+</mat-toolbar>

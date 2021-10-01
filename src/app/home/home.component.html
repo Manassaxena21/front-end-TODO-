@@ -1,0 +1,51 @@
+<div class="bootstrap-wrapper">
+  <div class="container ">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <!-- two-way binding using ngModel for note fields -->
+          <div class="container text-center">
+            <img class="img-fluid mt" style="width:100px" src="../../assets/addTaskIcon.png" alt="password.png">
+            <br>
+            <mat-label class="head mt">Add Task</mat-label>
+          </div>
+          <form>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Title</mat-label>
+              <input class="input-box" [(ngModel)]="task.taskTitle" name="title" type="text" matInput placeholder="Add title"/>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Description</mat-label>
+              <input class="input-box" [(ngModel)]="task.taskDescription" name="description" type="text" matInput placeholder="Add description"/>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Date</mat-label>
+              <input class="input-box" [(ngModel)]="task.taskDate" name="date" type="date" matInput placeholder="Add date"/>
+            </mat-form-field>
+            
+              <input class="button" [(ngModel)]="task.imagelink" name="image" type="file"  placeholder="Add image (If any)" (change)="addImage($event)" id="img"/>
+            
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Category</mat-label>
+              <input class="input-box" [(ngModel)]="task.categoryName" name="category" type="text" matInput placeholder="Add Category"/>
+            </mat-form-field>
+
+            <!-- property binding for setting disabled property -->
+            <!-- event binding for responding to click of button to add note -->
+            <!-- <lib-gps-button class="add-button" [disabled]="title.length==0 || content.length==0" caption="Add Note" (click)="addNote()">
+              Add Note
+            </lib-gps-button> -->
+
+            <div class="container text-center">
+              <button class="add-button" mat-raised-button color="primary"
+                [disabled]="task.taskTitle.length==0 || task.taskDescription.length==0 || task.taskDate.length==0 || task.categoryName.length==0" 
+                caption="Add Task" (click)="addTask()" >
+                Add Task
+              </button>
+            </div>
+          </form>
+          <p>{{task| json}}</p>
+        </div>
+      </div>
+  </div>
+
+</div>

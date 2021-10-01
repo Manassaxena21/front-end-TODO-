@@ -1,0 +1,14 @@
+<ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+    
+    <ng-template ngbSlide *ngFor="let image of images">
+        <div class="picsum-img-wrapper">
+        <img [src]="image" style="background-size: cover; filter: brightness(50%);" height="600px" width="1600" alt="Random slide">
+      </div>
+      <div class="carousel-caption" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif cursive; font-size: xx-large; word-spacing: 3px;">WELCOME TO TASK DOCKET</h1>
+        <p style="font-size: larger;">MANAGING TASKS BECOME EASY CLICK BELOW TO REGISTER</p>
+        <a routerLink="register"><button type="button" class="btn btn-primary">GETTING STARTED</button></a>
+      </div>
+      
+    </ng-template>
+  </ngb-carousel>

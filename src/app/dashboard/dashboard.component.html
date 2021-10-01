@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+    <div fxHide.lt-md class="column-label">
+      <span >Columns</span>
+      <mat-slider [min]="3" [max]="5" [thumbLabel]="true" [(ngModel)]="gridColumns"></mat-slider>
+    </div>  
+</mat-toolbar>
+  <div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let task of tasks">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Bill Gates</mat-card-title>
+          <mat-card-title id="date">{{task.taskDate}}</mat-card-title>
+          <mat-card-subtitle>billgates@gmail.com</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/12_powerhouse_vegetables_slideshow/intro_cream_of_crop.jpg"> -->
+        <img  mat-card-image src={{task.imagelink}} >
+        <mat-card-content>
+          <!--<p>
+            I have to buy essentials today.
+          </p>-->
+          <h2>{{task.taskTitle}}</h2>
+          <p>
+            {{task.taskDescription}}
+          </p>
+          <!--<mat-list role="list">
+            <mat-list-item role="listitem">Item 1</mat-list-item>
+            <mat-list-item role="listitem">Item 2</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+          </mat-list>-->
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Done</button>
+          <button mat-button>Edit</button>
+          <button mat-button>Delete</button>
+          <button mat-button>Link</button>
+        </mat-card-actions>
+    </mat-card>
+    </div>
+  
+    </div>
+  </div>
+  

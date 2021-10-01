@@ -1,0 +1,8 @@
+.login-margin{
+    flex:1 1 auto;
+}
+img{
+    height: 150px;
+    width: 200px;
+    margin-right: 0.5vw;
+}

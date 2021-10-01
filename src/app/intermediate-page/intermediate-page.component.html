@@ -1,0 +1,30 @@
+<div fxLayoutAlign="space-between center" class="split-screen-parent">
+    <!-- LEFT SIDE -->
+    <section fxLayoutAlign="center center"
+            [@leftScreen]="focus"
+            (mouseenter)="handleBump('left')"
+            (click)="focus = 'left'"
+            class="left-screen-parent"
+            [ngClass]="{'selected': focus === 'left'  || focus === 'bumpLeft'}">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <img src="../../assets/addTaskIcon.png" class="sectionleft" style="margin-bottom: 20px;">
+        
+        <h1>ADD TASK</h1>
+        <a routerLink="/addtask"><button type="button" class="btn btn-light" style="margin-top: 40px;">ADD TASK</button></a>
+      </div>
+    </section>
+  
+    <!-- RIGHT SIDE -->
+    <section fxLayoutAlign="center center"
+            [@rightScreen]="focus"
+            (mouseenter)="handleBump('right')"
+            (click)="focus = 'right'"
+            class="right-screen-parent"
+            [ngClass]="{'selected': focus === 'right' || focus === 'bumpRight'}">
+      <div fxLayout="column" fxLayoutAlign="center center">
+          <img src="../../assets/viewTaskIcon.png" style="margin-bottom: 20px;">
+        <h1>VIEW TASK</h1>
+        <a routerLink="/dashboard"><button type="button" class="btn btn-light" style="margin-top: 40px;">VIEW TASK</button></a>
+      </div>
+    </section>
+  </div>

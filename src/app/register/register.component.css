@@ -1,0 +1,12 @@
+.full-width{
+    width: 100%;
+}
+
+.error{
+    color: red;
+}
+
+.error-container{
+background-color: rgb(243, 209, 180);
+border-radius: 1rem;
+}
